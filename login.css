@@ -1,0 +1,168 @@
+/*
+Same 2 css files for all pages (if necessary one for horizontal mode, one for vertical: so far no reason for separate ones)
+Also: checked for color-blindness, ok contrast
+TO DO: most of it lol, font size options etc
+*/
+
+body {
+  font-family:Georgia, 'Times New Roman', Times, serif;
+  color: #1e2321;
+  line-height: 1.5em;
+}
+
+a:link, a:active, a:visited {
+  color: #434d3f;
+}
+
+a:hover {
+  color: #83877c;
+}
+
+h2 {
+  text-align: center;
+}
+
+form {
+  border: 3px solid #ccd2ce;
+  background-color: #f1f0ef;
+  margin: auto;
+  width: 55%;
+  border-radius: 3%;
+}
+
+/* Full-width inputs*/
+input[type=text],
+input[type=password] {
+  width: 100%;
+  padding: 0.9em 1.2em;
+  margin: 0.5em 0;
+  display: inline-block;
+  border: 1px solid #ccd2ce;
+  border-radius: 2%;
+  background-color: #ede7e3;
+  color: #2d3230;
+  box-sizing: border-box;
+}
+
+/* Set a style for all buttons */
+button {
+  background-color: #434d3f;
+  color: #ede7e3;
+  padding: 0.9em 1.2em;
+  margin: 0.5em 0;
+  border: none;
+  border-radius: 2%;
+  cursor: pointer;
+  width: 100%;
+}
+
+/* Add a hover effect for buttons */
+button:hover {
+  opacity: 0.8;
+}
+
+/* UNFINISHED UNSURE IF IT'LL WORK
+input#checkbox:checked + label {
+  background-color: #ede7e3;
+  color: #1e2321;
+}
+*/
+
+/* Extra style for the cancel button (red) */
+.cancelbtn {
+  width: auto;
+  padding: 0.4em 1.2em;
+  background-color: #703c26;
+}
+
+/* Center the avatar image inside this container */
+.imgcontainer {
+  text-align: center;
+  margin: 1em;
+}
+
+/* Avatar image */
+img.avatar {
+  width: 98%;
+  max-height: 16em;
+  border: 3px solid #ccd2ce;
+  border-radius: 3%;
+  float: center;
+}
+
+.container#container2 {
+  background-color:#ccd2ce;
+  border-radius:4.5%
+}
+
+/* Add padding to containers */
+.container {
+  padding: 1em;
+}
+
+/* The "Forgot password" text */
+span.psw {
+  float: right;
+  font-size: 0.7em;
+  padding-top: 1em;
+}
+
+/* MAINLY ORDER LIST */
+
+table {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1em;
+  border-radius: 0.5em;
+  border: 3px solid #ccd2ce;
+  max-width: 100%;
+  text-align: center;
+  margin: 0em;
+  padding: 1em;
+}
+
+td, th {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 0.95em;
+  margin: 0em;
+  border: solid 1px #ccd2ce;
+  text-align: center;
+  padding: 0.6em 1em;
+  column-span: 15%;
+}
+
+#orderList {
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: fit-content;
+}
+
+input#searchText {
+  max-width: 100%;
+  margin: 2em 0;
+  float: left;
+  padding: 0.5em;
+}
+
+
+#orderList td,
+#orderList th {
+  border: 1px solid #ddd;
+  margin: auto;
+  padding: 8px;
+}
+
+#orderList tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+#orderList tr:hover {
+  background-color: #ddd;
+}
+
+#orderList th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #04AA6D;
+  color: white;
+}
