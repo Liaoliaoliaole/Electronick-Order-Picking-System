@@ -1,4 +1,3 @@
-
 /*Fectch and initialise data from server - Siyuan Xu */
 function getData() {
 	fetch("http://www.cc.puv.fi/~asa/json/project.json")
@@ -131,11 +130,11 @@ function htmlGenerateOrder(orders) {
     <th>DELIV. DATE</th></tr>";
 
 	for (let i in orders) {
-		result += "<tr onClick='displayProduct(" + i + ");'><th>" + orders[i].status + "</th>"
-			+ "<th>" + orders[i].orderID + "</th>"
-			+ "<th>" + orders[i].cID + "</th>"
-			+ "<th>" + orders[i].comment + "</th>"
-			+ "<th>" + orders[i].delivDate + "</th></tr>";
+		result += "<tr onClick='displayProduct(" + i + ");'><td bgcolor= '" + orders[i].status + "'></td>"
+			+ "<td>" + orders[i].orderID + "</td>"
+			+ "<td>" + orders[i].cID + "</td>"
+			+ "<td>" + orders[i].comment + "</td>"
+			+ "<td>" + orders[i].delivDate + "</td></tr>";
 	}
 	document.getElementById("orderList").innerHTML = result;
 }
