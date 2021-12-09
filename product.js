@@ -1,9 +1,8 @@
-/* Siyuan Xu */
 function displayProduct(index) {
 	let ordersText = localStorage.getItem("localOrderData");
 	let orders = JSON.parse(ordersText);
 	htmlGenerateProduct(orders[index]);
-	//	orders[index].status = "yellow";
+	updateOrderStatus("yellow");
 	document.getElementById("orderList").style.display = "none";
 	document.getElementById("products").style.display = "table";
 	localStorage.setItem("currentOrderIndex",index);
@@ -23,12 +22,12 @@ function htmlGenerateProduct(order) {
 	<th>Delivered</th></tr>";
 
 	for (let i in order.products) {
-		result += "<tr><th><input type='checkbox'></th>"
-			+ "<th>" + order.products[i].pName + "</th>"
-			+ "<th>" + order.products[i].pCode + "</th>"
-			+ "<th>" + order.products[i].sPos + "</th>"
-			+ "<th>" + order.products[i].qty + "</th>"
-			+ "<th><input id='delivered" + i + "' type='text'></th></tr>";
+		result += "<tr><td><input type='checkbox'></td>"
+			+ "<td>" + order.products[i].pName + "</td>"
+			+ "<td>" + order.products[i].pCode + "</td>"
+			+ "<td>" + order.products[i].sPos + "</td>"
+			+ "<td>" + order.products[i].qty + "</td>"
+			+ "<td><input id='delivered" + i + "' type='text' value='" + order.products[i].collection + "'></td></tr>";
 	}
 	document.getElementById("productList").innerHTML = result;
 }
@@ -41,16 +40,17 @@ function displayReceipt(){
 	let ordersText = localStorage.getItem("localOrderData");
 	let orders = JSON.parse(ordersText);
 	let i = localStorage.getItem("currentOrderIndex");
-
-    orders[i].status = "green";
-
 	document.getElementById("orders").style.display = "none";
 	document.getElementById("products" ).style.display = "none";
-	document.getElementById("receipt").style.display = "";
-	
+	document.getElementById("receipt").style.display = "";	
 	htmlGenerateReceiptOrderInfo(orders[i]);
 	htmlGenerateReceiptProductInfo(orders[i]);
-	htmlGenerateReceiptPrintButton();
+	if(document.getElementById("print")==null){
+		console.log(document.getElementById("print"));
+		htmlGenerateReceiptPrintButton();
+	}else{
+		document.getElementById("print").style.display = "";
+	}
 }
 
 //show single order info list Final (LILI)
@@ -87,11 +87,11 @@ function htmlGenerateReceiptProductInfo(order) {
 	<th>Delivered</th></tr>";
 
 	for (let i in order.products) {
-		result += "<tr><th>" + order.products[i].pName + "</th>"
-			+ "<th>" + order.products[i].pCode + "</th>"
-			+ "<th>" + order.products[i].uPrice + "</th>"
-			+ "<th>" + order.products[i].qty + "</th>"
-			+ "<th>" + order.products[i].collection + "</th></tr>";
+		result += "<tr><td>" + order.products[i].pName + "</td>"
+			+ "<td>" + order.products[i].pCode + "</td>"
+			+ "<td>" + order.products[i].uPrice + "</td>"
+			+ "<td>" + order.products[i].qty + "</td>"
+			+ "<td>" + order.products[i].collection + "</td></tr>";
 	}
 	document.getElementById("receiptProductInfo").innerHTML = result;
 };
@@ -109,16 +109,30 @@ function htmlGenerateReceiptPrintButton(){
 	document.body.appendChild(printButton);
 }
 
-/* Push/Update the current order data in localstorage - siyuan xu */
-function updateOrderData(){
+
+function updateOrderData(status){
 	let ordersText = localStorage.getItem("localOrderData");
 	let orders = JSON.parse(ordersText);
 	let orderIndex = localStorage.getItem("currentOrderIndex");
 	for(let i in orders[orderIndex].products){
-		orders[orderIndex].products[i].collection = document.getElementById("delivered"+i).value;
-		console.log(document.getElementById("delivered"+i).value);
-		console.log(orders[orderIndex].products[i].collection);
+		let input_value = document.getElementById("delivered"+i).value;
+		orders[orderIndex].products[i].collection = input_value == "" ? 0 : input_value;
+		console.log("delivered:", input_value);
 	}
-	orders[orderIndex].status = "green";
+	console.log("orderinfo", orders[orderIndex].products);
+	if(orders[orderIndex].status != "green" && status != ""){ 
+		orders[orderIndex].status = status;
+	}
+	localStorage.setItem("localOrderData", JSON.stringify(orders));
+}
+
+function updateOrderStatus(status){
+	let ordersText = localStorage.getItem("localOrderData");
+	let orders = JSON.parse(ordersText);
+	let orderIndex = localStorage.getItem("currentOrderIndex");
+
+	if(orders[orderIndex].status != "green" && status != ""){ 
+		orders[orderIndex].status = status;
+	}
 	localStorage.setItem("localOrderData", JSON.stringify(orders));
 }
