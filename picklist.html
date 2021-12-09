@@ -12,9 +12,7 @@
     <script src="orderlist.js"></script>
     <script src="login.js"></script>
     <script src="product.js"></script>
-    <link rel=”stylesheet” type=”text/css” href=”login.css” />
-    <link rel=”stylesheet” type=”text/css” href=”orderlist.css” />
-
+    <link rel="stylesheet" type="text/css" href="picklist.css">
 </head>
 
 <body onload="getData();pageInit();">
@@ -52,7 +50,7 @@
 
     <div id="products">
         <table id="productList"></table>
-        <button type="button" id="readyButton" onclick="updateOrderData();displayReceipt();">Ready</button>
+        <button type="button" id="readyButton" onclick="updateOrderData('green');displayReceipt();">Ready</button>
     </div>
 
     <div id="receipt">
