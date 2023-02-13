@@ -1,4 +1,4 @@
-/* login check with sha1 encryption - Siyuan Xu*/ 
+/* login check with sha1 encryption*/ 
 /*
 function validate() {
     let uname = document.getElementById("uname").value;
