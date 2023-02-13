@@ -20,26 +20,6 @@ After all products have been picked, user needs to be able to mark the whole ord
 
 ---------------------------
 
-1. Specification:
-What are the requirements of electric picking list application? List all requirements on paper
- 
-
-2. Design:
-What kind of UI we need?
-Draw into paper different pages  
-What are the main components in our application?
-How shall we implement login?
-What should the printed packing list look like?
- 
-
-3. Implementation:
-Who is in response of what?
-HTML, CSS, Javascript
-Login, listing orders, printing etc
-Version contrl to help working with teams?
- 
-
-4. Project results:
 Login (username:admin, password: admin)
 Find orders by search criterias (As a warehouse worker I want to find orders with different search criterias, so that I can find the order that I need to collect)
 Open order (As a warehouse worker I want to open the order to see order details)
