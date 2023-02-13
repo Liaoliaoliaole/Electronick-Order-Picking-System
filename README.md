@@ -18,8 +18,6 @@ The orders are still coming via the existing system, and they can be exported in
 Customer has decided to purchase tablets for warehouse workers. With tablet they want to use our application for searching orders and picking them for delivery. User needs to be able to search orders with different criteria's, and once opening an order to see what has been ordered. Users needs to be able to mark each product as picked and/ or write comments for ordered products. 
 After all products have been picked, user needs to be able to mark the whole order as ” ready ”. He also needs to be able to print a clean packing list to be sent with the products. Marking the order as ready is important so that sales person sees the status and can answer customer questions.
 
-Our application needs to be secure, so login into the application is required
-
 ---------------------------
 
 1. Specification:
@@ -42,14 +40,12 @@ Version contrl to help working with teams?
  
 
 4. Project results:
-UI design
-Electric picking list -application delivered to VAMK server (public_html)
-Presentation of your project
-Demo
-How did the project go, who did what etc
- 
-5. Project grading:
-Usability
-Functionalities
-Implementation
-for example how the login was implemented
+Login (username:admin, password: admin)
+Find orders by search criterias (As a warehouse worker I want to find orders with different search criterias, so that I can find the order that I need to collect)
+Open order (As a warehouse worker I want to open the order to see order details)
+Show order details & products (As a warehouse worker I need to see the details of the order and the products that were ordered)
+Commenting products (As a warehouse worker I need to be able to give comments to products so I know if something was not completely picked)
+Marking products as picked (As a warehouse worker I need to be able to mark products picked so I know that what are the remaining products)
+Marking order as ready 
+Print packing list (As a warehouse worker I want to print packing list from the system without so that I can send it to customer)
+Need to be tablet-friendly
